@@ -18,8 +18,6 @@ ACCESS_SECRET = os.environ.get("ACCESS_SECRET")
 SEEN_DB = os.environ.get("SEEN_DB", "omeka-tweet.json")
 FEED_URL = os.environ.get("FEED_URL")
 
-print 'x: %s' % FEED_URL
-
 if os.path.isfile(SEEN_DB):
     seen = json.load(open(SEEN_DB))
 else:
