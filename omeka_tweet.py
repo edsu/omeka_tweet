@@ -66,6 +66,5 @@ for item in feed.findall('.//item'):
         seen[link] = True
         json.dump(seen, open(SEEN_DB, "w"), indent=2)
 
-        # xxx: remove
+        # only tweet one on each run
         break
-        time.sleep(30)

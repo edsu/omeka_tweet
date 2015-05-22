@@ -1,15 +1,17 @@
-This little script tweets new items that are added to an Omeka 
-instance. It is designed to be run from cron using environment
-variables. The sample run.sh shows how you can do this.
+This little script tweets new items that are added to an Omeka instance. It will try to get item descriptions, creators and images to post to Twitter. You can see a sample Twitter stream over at [baltimoreup](https://twitter.com/baltimoreup).
+
+It is designed to be run from cron using environment variables. The sample
+run.sh shows how you can do this. It will only tweet once per run, but it
+will remember what items it has tweeted between runs.
 
     git clone https://github.com/edsu/omeka_tweet
     cd omeka_tweet
     virtualenv ENV
+    source ENV/bin/activate
     pip install -r requirements.txt
     cp run.sh runs.sh.template
     # edit run.sh variables
     ./run.sh
 
-You can see a sample Twitter stream over at
-[baltimoreup](https://twitter.com/baltimoreup).
-
+Then you should be able to just put run.sh in your crontab to run 
+every 15 minutes or whatever.
