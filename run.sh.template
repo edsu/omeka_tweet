@@ -1,13 +1,15 @@
 #!/bin/bash
 
+# change these
 HOME="/Users/ed/Projects/omeka_tweet"
-
-export CONSUMER_KEY="DY25BzsR2twISjfDxWb5omu0P"
-export CONSUMER_SECRET="pqkzzvWwwNxsKHMaSOhOvn0ZcNL3OrQ3sgEB5bmzeGyrjb2KYG"
-export ACCESS_TOKEN="3257486069-KpgSq6m3X3L8ierPsaBFHDeys10OnMxtMJARcsQ"
-export ACCESS_SECRET="cB0TcpPDQcXx8SDO5jnExiMwyUXI67xUtHYOilaWmOJS0"
 export FEED_URL="http://baltimoreuprising2015.org/cms/items/browse?&sort_field=added&sort_dir=d&output=rss2"
-export SEEN_DB="$HOME/seen.json"
 
+export CONSUMER_KEY=""
+export CONSUMER_SECRET=""
+export ACCESS_TOKEN=""
+export ACCESS_SECRET=""
+
+# shouldn't need to change this
+export SEEN_DB="$HOME/seen.json"
 source "$HOME/ENV/bin/activate"
 $HOME/omeka_tweet.py
