@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+"""
+Tweet the first item found in an Omeka feed that hasn't already
+been tweeted before.
+"""
+
 import os
 import json
 import time
