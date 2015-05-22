@@ -1,4 +1,4 @@
-This little script tweets new items that are added to an omeka 
+This little script tweets new items that are added to an Omeka 
 instance. It is designed to be run from cron using environment
 variables. The sample run.sh shows how you can do this.
 
@@ -9,4 +9,7 @@ variables. The sample run.sh shows how you can do this.
     cp run.sh runs.sh.template
     # edit run.sh variables
     ./run.sh
+
+You can see a sample Twitter stream over at
+[baltimoreup](https://twitter.com/baltimoreup).
 
