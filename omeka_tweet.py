@@ -7,7 +7,6 @@ been tweeted before.
 
 import os
 import json
-import time
 import urllib
 import tweepy
 import tempfile
