@@ -9,9 +9,11 @@ will remember what items it has tweeted between runs.
     virtualenv ENV
     source ENV/bin/activate
     pip install -r requirements.txt
-    cp run.sh runs.sh.template
-    # edit run.sh variables
+    cp run.sh.example run.sh
+    # edit run.sh with your Twitter credentials, etc.
     ./run.sh
 
 Then you should be able to just put run.sh in your crontab to run 
-every 15 minutes or whatever.
+every 15 minutes or whatever. For example:
+
+    0,10,20,30,40,50 * * * * /home/ed/Projects/omeka_tweet/run.sh
