@@ -3,13 +3,12 @@
 # change these
 HOME="/Users/ed/Projects/omeka_tweet"
 export FEED_URL="http://baltimoreuprising2015.org/cms/items/browse?&sort_field=added&sort_dir=d&output=rss2"
-
 export CONSUMER_KEY=""
 export CONSUMER_SECRET=""
 export ACCESS_TOKEN=""
 export ACCESS_SECRET=""
 
-# shouldn't need to change this
+# shouldn't need to change these
 export SEEN_DB="$HOME/seen.json"
 source "$HOME/ENV/bin/activate"
 $HOME/omeka_tweet.py
