@@ -1,9 +1,8 @@
 This little script tweets new items that are added to an Omeka instance. It uses
-Omeka's RSS feed, and will get item descriptions, creators and images to post to Twitter. You can see a sample Twitter stream over at [baltimoreup](https://twitter.com/baltimoreup).
+Omeka''s RSS feed, and will get item descriptions, creators and images to post to Twitter. You can see a sample Twitter stream over at [baltimoreup](https://twitter.com/baltimoreup).
 
 It is designed to be run from cron using environment variables. The sample
-run.sh shows how you can do this. It will sleep 20 seconds between tweets
-and will remember what items have already been tweeted between runs.
+run.sh shows how you can do this.
 
     git clone https://github.com/edsu/omeka_tweet
     cd omeka_tweet
