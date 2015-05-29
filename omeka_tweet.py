@@ -6,6 +6,7 @@ Tweet items found in an Omeka feed that haven't been tweeted before.
 
 import os
 import json
+import time
 import urllib
 import tweepy
 import tempfile
