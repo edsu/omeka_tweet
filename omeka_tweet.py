@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 """
-Tweet the first item found in an Omeka feed that hasn't already
-been tweeted before.
+Tweet items found in an Omeka feed that haven't been tweeted before.
 """
 
 import os
@@ -71,5 +70,4 @@ for item in feed.findall('.//item'):
         seen[link] = True
         json.dump(seen, open(SEEN_DB, "w"), indent=2)
 
-        # only tweet one on each run
-        break
+        time.sleep(20)
