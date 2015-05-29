@@ -6,7 +6,6 @@ Tweet items found in an Omeka feed that haven't been tweeted before.
 
 import os
 import json
-import time
 import urllib
 import tweepy
 import tempfile
@@ -58,12 +57,16 @@ for item in feed.findall('.//item'):
             urllib.urlretrieve(img, path)
 
             # twitter doesn't like all jpegs so convert to png
+
             i = Image.open(path)
             png = path + '.png'
             i.save(png, 'png')
+
             twitter.update_with_media(png, status)
+
             os.remove(path)
             os.remove(png)
+
         else:
             twitter.update_status(status=status)
 
