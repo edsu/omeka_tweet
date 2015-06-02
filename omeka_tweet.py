@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Tweet items found in an Omeka feed that haven't been tweeted before.
@@ -87,7 +88,7 @@ def get_status_text(title, desc, creator, link, img):
 
     # see if we can add the creator to the message
     if len(msg) > limit:
-        msg = msg[0:limit]
+        msg = unicode(msg[0:limit-1]) + u'…'
     elif len(msg + ' by ' + creator) < limit:
         msg = msg + ' by ' + creator
 
