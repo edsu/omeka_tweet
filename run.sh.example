@@ -8,6 +8,9 @@ export CONSUMER_SECRET=""
 export ACCESS_TOKEN=""
 export ACCESS_SECRET=""
 
+# time to sleep between successive tweets
+export SLEEP_SECONDS=20
+
 # shouldn't need to change these
 export SEEN_DB="$HOME/seen.json"
 source "$HOME/ENV/bin/activate"
