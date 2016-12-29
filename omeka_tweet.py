@@ -54,14 +54,14 @@ def tweet(item):
     else:
         img = None
 
-    soup = BeautifulSoup(desc)
-    desc = soup.select('div[id="dublin-core-description"] div')[0].text
-    creator = soup.select('div[id="dublin-core-creator"] div')[0].text
+    soup = BeautifulSoup(desc, 'html.parser')
+    desc = first(soup, 'div[id="dublin-core-description"] div')
+    creator = first(soup, 'div[id="dublin-core-creator"] div')
 
     status = get_status_text(title, desc, creator, link, img)
+    png = get_image(img)
 
-    if img:
-        png = get_image(img)
+    if png:
         twitter.update_with_media(png, status)
         os.remove(png)
     else:
@@ -87,7 +87,7 @@ def get_status_text(title, desc, creator, link, img):
         msg = desc
 
     # see if we can add the creator to the message
-    if len(msg) > limit:
+    if len(msg) > limit or not creator:
         msg = unicode(msg[0:limit-1]) + u'…'
     elif len(msg + ' by ' + creator) < limit:
         msg = msg + ' by ' + creator
@@ -96,11 +96,20 @@ def get_status_text(title, desc, creator, link, img):
 
 
 def get_image(url):
+    if not url:
+        return None
+
     fh, path = tempfile.mkstemp()
     urllib.urlretrieve(url, path)
 
     # twitter doesn't like all jpegs so convert to png
-    i = Image.open(path)
+    # omeka requires a login for some images, so catch those
+
+    try:
+        i = Image.open(path)
+    except:
+        return None
+
     png = path + '.png'
     i.save(png, 'png')
 
@@ -110,6 +119,11 @@ def get_image(url):
 
     return png
 
+def first(soup, path):
+    e = soup.select(path)
+    if len(e) > 0:
+        return e[0].text
+    return None
 
 if __name__ == "__main__":
     main()
